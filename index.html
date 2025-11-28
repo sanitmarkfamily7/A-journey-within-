@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Within | Black Friday & Details</title>
+    <style>
+        /* استيراد خطوط حديثة وجذابة */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;800;900&family=Montserrat:wght@700;900&display=swap');
+
+        /* المتغيرات والألوان */
+        :root {
+            --primary-color: #f7d730; /* لون ذهبي/أصفر للاحتفال بالعرض */
+            --secondary-color: #CC0000; /* لون أحمر لتأكيد الخصم */
+            --black-friday-bg: #1a1a1a; /* خلفية داكنة للبلاك فرايدي */
+            --text-light: #ffffff;
+            --font-ar: 'Cairo', sans-serif;
+            --font-en: 'Montserrat', sans-serif;
+        }
+
+        /* التصميم العام */
+        body {
+            font-family: var(--font-ar);
+            margin: 0;
+            padding: 0;
+            background-color: var(--black-friday-bg);
+            color: var(--text-light);
+            line-height: 1.8;
+            text-align: right;
+            overflow-x: hidden;
+        }
+
+        /* === 1. تنسيق اللوجو الثابت (جديد) === */
+        .logo-container {
+            position: fixed; 
+            top: 20px;
+            left: 20px; 
+            z-index: 1000; 
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-img {
+            height: 60px; 
+            width: auto;
+            display: block;
+        }
+        
+        /* === 2. تعريف الحركات (جديد) === */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 30px rgba(247, 215, 48, 0.6); }
+            50% { box-shadow: 0 0 50px rgba(247, 215, 48, 1); }
+            100% { box-shadow: 0 0 30px rgba(247, 215, 48, 0.6); }
+        }
+        
+        @keyframes subtle-shake {
+            0%, 100% { transform: scale(1); }
+            5% { transform: scale(1.02); }
+            10% { transform: scale(1); }
+        }
+        
+        /* تنسيق الهيدر والصورة الرئيسية (البلاك فرايدي) */
+        .hero-section {
+            position: relative;
+            height: 80vh; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            /* استخدام صورة البلاك فرايدي كخلفية */
+            background-image: url('Rehla.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 2;
+        }
+
+        .offer-box {
+            z-index: 3;
+            max-width: 90%;
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid var(--primary-color);
+            background-color: rgba(26, 26, 26, 0.9);
+            box-shadow: 0 0 30px rgba(247, 215, 48, 0.6);
+            /* تطبيق حركة الوهج */
+            animation: pulse-glow 3s infinite ease-in-out; 
+        }
+
+        .offer-box h1 {
+            font-family: var(--font-en);
+            font-size: 3em;
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-weight: 900;
+        }
+
+        .price-tag {
+            font-size: 4.5em;
+            font-weight: 900;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 5px var(--black-friday-bg);
+            margin: 5px 0 15px 0;
+            display: block;
+            line-height: 1;
+        }
+
+        .old-price {
+            font-size: 1.5em;
+            color: #ccc;
+            text-decoration: line-through;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        /* تفاصيل الرحلة (القسم الثاني) */
+        .details-section {
+            padding: 50px 5%;
+            background-color: #2c2c2c; 
+        }
+
+        .details-section h2 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* تنسيق بطاقة التفاصيل الأساسية */
+        .main-details-card {
+            display: flex;
+            flex-direction: row; 
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            margin-bottom: 50px;
+        }
+
+        .details-text {
+            flex: 2;
+            padding: 30px;
+        }
+
+        .details-image-container {
+            flex: 1;
+            min-width: 30%;
+            position: relative;
+        }
+
+        .details-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* استخدام صورة الكشف كخلفية */
+            background-image: url('Blackfridy.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* تنسيق قائمة الفوائد */
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            padding: 8px 0;
+            font-size: 1.1em;
+            border-bottom: 1px dashed #3a3a3a;
+        }
+
+        .benefits-list li:before {
+            content: '✅'; 
+            margin-left: 10px;
+            font-size: 1.2em;
+        }
+
+        /* سعر الرحلة العادي (يظهر كمعلومة أساسية) */
+        .regular-price {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid var(--secondary-color);
+        }
+
+        /* زر الحجز (Call to Action) */
+        .cta-button {
+            display: block;
+            width: 90%;
+            max-width: 450px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-weight: 800;
+            box-shadow: 0 5px 20px rgba(204, 0, 0, 0.6);
+            transition: background-color 0.3s, transform 0.3s;
+            /* تطبيق حركة الارتعاش الخفيف */
+            animation: subtle-shake 8s infinite 5s; 
+        }
+
+        .cta-button:hover {
+            background-color: #ff3333;
+            transform: scale(1.03);
+        }
+
+        /* تنسيقات الموبايل (تم تعديل الارتفاع لضمان وضوح الصورة) */
+        @media (max-width: 768px) {
+            .hero-section { height: 70vh; }
+            .offer-box h1 { font-size: 2.2em; }
+            .price-tag { font-size: 3.5em; }
+            .details-section h2 { font-size: 2em; }
+            .main-details-card { flex-direction: column; } 
+            .details-image-container { 
+                height: 300px; 
+            } 
+            .cta-button { width: 100%; }
+        }
+
+        /* تنسيق قسم الفوتر وروابط التواصل */
+        .footer {
+            background-color: #111;
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.2em;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 10px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: var(--black-friday-bg);
+        }
+
+        .designer-credit {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="logo-container">
+        <img src="1000151964.jpg" alt="لوجو أسرة سان مارك" class="logo-img">
+    </div>
+
+    <header class="hero-section">
+        <div class="hero-image" role="img" aria-label="صورة إعلان البلاك فرايدي سعر 100 جنيه"></div>
+        <div class="overlay"></div>
+        
+        <div class="offer-box">
+            <h1>BLACK FRIDAY SALE! 💥</h1>
+            <p style="font-size: 1.1em; margin-bottom: 0;">لقاءنا مش بـ <span class="old-price">120 ج.م</span> ولا بـ 110 ج.م</p>
+            <span class="price-tag">بـ 100 ج.م بسسس</span>
+            <p style="color: var(--primary-color); font-weight: 800; font-size: 1.2em;">🔥 حصريًا لأي حد هيحجز **الجمعة 28/11 فقط!** 🤯</p>
+        </div>
+    </header>
+
+    <section class="details-section">
+        <h2>🗓️ تفاصيل الرحلة وطريقة الحجز</h2>
+        
+        <div class="main-details-card">
+            <div class="details-text">
+                <h3>**ميعاد الرحلة:** الجمعة ٥ / ١٢ في دير الأنبا بشاي 😌</h3>
+                <p>رحلتنا المرة دي لمكان محدش بيروحه كتيير 🚷 يمكن يكون بعيييد عنك خالص، لكن فالحقيقة هو أقرب ما يكون ليك 🪞. وأخيرًا جه ميعاد لقاءنا اللي مستنيينه من بدري 🌚❤️.</p>
+                
+                <h4>**تفاصيل اللقاء (روحي ومرح)**</h4>
+                <ul class="benefits-list">
+                    <li>لقاء روحي شيق ومميز.</li>
+                    <li>حبة من المرح والانبساط 😌😂❤️.</li>
+                    <li>طبعاً مش ناسيين الأكل: **فطار وغدا** 🥐☕🌮.</li>
+                    <li>لقاءنا لشباب **مرحلة جامعة من كل الكليات** 🥰❤️.</li>
+                </ul>
+
+                <p class="regular-price">**💰 سعر الرحلة الأساسي: 120 جنيه**</p>
+                <p style="color: #ccc; font-weight: 600;">*سعر الـ 100 جنيه سارٍ فقط لحجوزات يوم الجمعة 28/11.</p>
+                
+                <p style="margin-top: 25px; text-align: center; color: var(--primary-color); font-size: 1.2em;">ويا عالِم … لسه المفاجآت مكملـــــــة 👀🔥 استنونا بكرة وهتعرفوا الباقي 😉</p>
+            </div>
+            
+            <div class="details-image-container">
+                <div class="details-image" role="img" aria-label="صورة رحلة كشف أثرية ومكبرة"></div>
+            </div>
+        </div>
+
+        <div class="main-details-card" style="background-color: var(--secondary-color);">
+            <div class="details-text" style="text-align: center; color: var(--text-light); padding: 20px;">
+                <h3 style="color: var(--text-light); margin-bottom: 15px;">⚫ للحجز اليوم **الجمعة 28/11** (بسعر 100 ج.م)</h3>
+                
+                <p style="font-size: 1.1em;">
+                    **المكان:** نادي كنيسة مارجرجس. <br>
+                    **الموعد:** من 7 مساءً لـ 10 مساءً.
+                </p>
+
+                <div class="contact-info">
+                    <p>**للتواصل والحجز:**</p>
+                    <p>كيرو مجدي: <a href="tel:+201203914398">01203914398</a></p>
+                    <p>سيلڤيا ميخائيل</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://www.facebook.com/your-group-link" target="_blank" class="cta-button">أحجز الآن وتابع بقية المفاجآت</a>
+    </section>
+    
+    <footer class="footer">
+        <h3>للتواصل والمتابعة</h3>
+        <div class="social-links">
+            <a href="#" target="_blank" title="Facebook Page">فيس بوك</a> 
+            <a href="#" target="_blank" title="WhatsApp Contact">واتساب</a> 
+            <a href="#" target="_blank" title="Instagram Profile">انستجرام</a> 
+        </div>
+
+        <p class="designer-credit">
+            تصميم وبرمجة بواسطة: **توماس ماهر**
+        </p>
+    </footer>
+
+</body>
+</html>
